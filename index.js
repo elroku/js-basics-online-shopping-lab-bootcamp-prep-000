@@ -10,12 +10,12 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var price = Math.floor(Math.random() * 100) + 1;
+  var price = Math.floor(Math.random() * 100 + 1);
   var newItem = {};
   newItem[item] = price
   cart.push(newItem)
-  console.log(item + " has been added to the cart")
-
+  console.log(item + "has been added to your cart.");
+  return cart
 }
 
 function viewCart() {
@@ -23,7 +23,7 @@ function viewCart() {
     console.log("Your cart is empty")
   }else{
     addedItems = []
-    for (i = 0; i<cart.length; i++){
+    for (i = 0; i < cart.length; i++){
       for (item in cart[i]){
         addedItems.push(item + " at $" + cart[i][item])
       }
@@ -36,7 +36,7 @@ function viewCart() {
 function total() {
   let tot = 0
   for (i = 0; i<cart.length; i++){
-    for (var item in cart[i]){
+    for (var itemName in cart[i]){
       tot+=cart[i][item]
     }
     return tot
@@ -47,7 +47,7 @@ function total() {
 function removeFromCart(item) {
   var itemIn = false
   for (i = 0; i < cart.length; i++){
-    if (cart[i].hasOwnProperty(item)){
+    if (cart[i].hasOwnProperty(itemName)){
       itemIn = true;
       cart.splice(i,1)
     }
